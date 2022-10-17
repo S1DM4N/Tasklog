@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-body, input, h1, a, button, textarea{
+body, input, option, select, h1, a, button, textarea{
     margin: 0;
     padding: 0;
     font-family: 'Press Start 2P', cursive;
@@ -22,7 +22,7 @@ body, input, h1, a, button, textarea{
 .ar button, .ar a {
     transition: 0.1s;
 }
-.ar input, .ar textarea {
+.ar input, .ar select, .ar textarea {
     padding: 0.8vh 0.5vw;
     margin: 1.2vh 0 2vh 0;
 }
@@ -33,8 +33,11 @@ body, input, h1, a, button, textarea{
 .ar form {
     margin: 4vh 0 2vh 0;
 }
-.ar input, .ar button, .ar textarea {
+.ar input, .ar select, .ar button, .ar textarea {
     border: solid 0.2vh #000;
+}
+.ar select {
+    background: none;
 }
 .ar button {
     width: 13.01vw;

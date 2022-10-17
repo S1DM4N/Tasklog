@@ -21,6 +21,12 @@ if (isset($_SESSION['user'])) {
             <input type="text" name="login" placeholder="Введите логин">
             <label>Почта</label>
             <input type="email" name="email" placeholder="Введите эл.почту">
+            <label>Тип пользователя</label>
+            <select name="user_rule" required="required">
+                <option class="one" value="">Выберите значение</option>
+                <option value="2">Заказчик</option>
+                <option value="3">Исполнитель</option>
+            </select>
             <label>Пароль</label>
             <input type="password" name="password" placeholder="Введите пароль">
             <label>Подтверждение пароля</label>
