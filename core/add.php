@@ -1,8 +1,9 @@
 <?php 
+session_start();
 require_once 'db.php';
 
-$login_cus = $_POST['login_cus'];
-$email_cus = $_POST['email_cus'];
+$login_cus = $_SESSION['user']['user_login'];
+$email_cus = $_SESSION['user']['user_email'];
 $login_exe = $_POST['login_exe'];
 $email_exe = $_POST['email_exe'];
 $name_task = $_POST['name_task'];

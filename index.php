@@ -3,6 +3,7 @@ require_once 'core/db.php';
 if (!$_SESSION['user']) {
     header('Location: reg.php');
 }
+$user = $_SESSION['user']['user_login'];
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -15,13 +16,18 @@ if (!$_SESSION['user']) {
 </head>
 <body>
     <main class="ar task">
+        <?php print_r($_SESSION['user']['id_rule']);?>
         <h1>Задачи</h1>
         <div class="menu">
             <a class="exit"href="logout_user.php">Выйти</a>
             <a class="add"href="add_task.php">Добавить</a>
         </div>
         <?php
-            $tasks = mysqli_query($connect, "SELECT * FROM `task`");
+            if ($_SESSION['user']['id_rule'] > 1) {
+                $tasks = mysqli_query($connect, "SELECT * FROM `task` WHERE `task_login_customer` = '$user'");
+            } else {
+                $tasks = mysqli_query($connect, "SELECT * FROM `task`");
+            }
             $tasks = mysqli_fetch_all($tasks);
             foreach ($tasks as $task) {
         ?>

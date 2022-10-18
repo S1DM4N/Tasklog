@@ -11,14 +11,16 @@ if (preg_match("/^[a-zA-Z\d_-]*+$/", $_POST['login'])) {
     if (preg_match("/^[A-Z]{1}[a-zA-Z\d]*[`~!@#$%^&*()_+-={}|:;<>?,.\/\"\'\\\[\]]{1}+$/", $_POST['password'])) {
         if (mysqli_num_rows($check_user) > 0) {
     
-            $user= mysqli_fetch_assoc($check_user);
+            $user = mysqli_fetch_assoc($check_user);
         
             $_SESSION['user'] = [
-                "user_id" => $user['id'],
-                "user_login" => $user['login'],
-                "user_email" => $user['email']
+                "user_id" => $user['user_id'],
+                "user_login" => $user['user_login'],
+                "user_email" => $user['user_email'],
+                "id_rule" => $user['id_rule']
             ];
-        header('Location: ../index.php');
+
+            header('Location: ../index.php');
         } else {
             $_SESSION['message'] = 'Не верный логин или пароль!';
             header('Location: ../auth.php');
