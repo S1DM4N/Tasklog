@@ -2,8 +2,8 @@
 if (!$_SESSION['user']) {
     header('Location: reg.php');
 }
-$sql = mysqli_query($connect, "SELECT * FROM `db_user` WHERE `id_rule` = 2 ORDER BY `user_login`");
-$exe = mysqli_fetch_assoc($sql);
+// $sql = mysqli_query($connect, "SELECT * FROM `db_user` WHERE `id_rule` = 2 ORDER BY `user_login`");
+// $exe = mysqli_fetch_assoc($sql);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -19,10 +19,10 @@ $exe = mysqli_fetch_assoc($sql);
         <h1>Составление задачи</h1>
         <form action="core/add.php" method="post">
             <h3>Исполнитель:</h3>
-            <select name="user_exe" required="required">
-                <option class="one" value="">Выберите значение</option>
-                <?php ' . <option value=". '$exe['user_id'];' .">. '$exe['user_login'];' .</option>. '?>
-            </select>
+            <label>Логин</label>
+            <input type="text" name="login_exe" placeholder="Введите логин">
+            <label>Почта</label>
+            <input type="email" name="email_exe" placeholder="Введите эл.почту">
             <h3>Задание:</h3>
             <label>Название задания</label>
             <input type="text" name="name_task" placeholder="Введите название задания">

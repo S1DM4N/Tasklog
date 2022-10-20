@@ -24,7 +24,7 @@ $user = $_SESSION['user']['user_login'];
         </div>
         <?php
             if ($_SESSION['user']['id_rule'] > 1) {
-                $tasks = mysqli_query($connect, "SELECT * FROM `task` WHERE `task_login_customer` = '$user'");
+                $tasks = mysqli_query($connect, "SELECT * FROM `task` WHERE `task_login_customer` = '$user '");
             } else {
                 $tasks = mysqli_query($connect, "SELECT * FROM `task`");
             }
